@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const app = express();
 
-const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",");
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",") || ["*"];
 
 console.log(allowedOrigins)
 
@@ -48,6 +48,7 @@ const uploadImage = async (imageBuffer, name) => {
 
   return response.json();
 };
+
 
 // Маршрут загрузки
 app.post("/upload", upload.single("file"), async (req, res) => {
