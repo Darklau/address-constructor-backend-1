@@ -69,4 +69,9 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   }
 });
 
+app.post("/log", (req, res) => {
+  console.log(req.body);
+  res.json({ message: "ok" });
+});
+
 app.listen(3000, () => console.log("Сервер запущен на порту 3000"));
